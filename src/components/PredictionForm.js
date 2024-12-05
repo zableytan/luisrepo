@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PriceGraph from './PriceGraph'; // Ensure the PriceGraph component handles multiple weeks
-import '../index.css';
+import '../Prediction.css'; 
 
 const PredictionForm = ({ onSubmit }) => {
   const [commodity, setCommodity] = useState("Gabi"); // Default commodity

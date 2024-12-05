@@ -6,6 +6,7 @@ import cassavaImage from '../assets/cassava.png'; // Adjust the path as necessar
 import gabiImage from '../assets/Gabi.png'; // Adjust the path as necessary
 import kamoteImage from '../assets/kamote.png'; // Adjust the path as necessary
 import karlangImage from '../assets/karlang.png'; // Adjust the path as necessary
+import '../Dashboard.css'; 
 
 const crops = ['Gabi', 'Kamote', 'Karlang', 'Cassava'];
 
