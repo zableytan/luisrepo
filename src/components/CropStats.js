@@ -44,30 +44,40 @@ const CropStats = () => {
         <h2>Crop Statistics for {crop}</h2>
       </div>
 
-      <div className="crop-card">
-        <h3>Last 4 Weeks Prices</h3>
-        <ul>
-          {lastPrices.map((stat, index) => (
-            <li key={index}>
-              Date: {new Date(stat.Date).toLocaleDateString()} - Retail Price: {stat.Retail}
-            </li>
-          ))}
-        </ul>
+      {/* Left Column for Last 4 Weeks Prices and Graph */}
+      <div className="price-graph-container">
+        <div className="crop-card">
+          <h3>Last 4 Weeks Prices</h3>
+          <ul>
+            {lastPrices.map((stat, index) => (
+              <li key={index}>
+                Date: {new Date(stat.Date).toLocaleDateString()} - Retail Price: {stat.Retail}
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* Graph for Last 4 Weeks Prices (separate card below) */}
+        <div className="crop-card">
+          <PriceComparisonGraph lastPrices={lastPrices} predictedPrices={predictedPrices} />
+        </div>
       </div>
 
-      <div className="crop-card">
-        <h3>Predicted Prices for Next 4 Weeks</h3>
-        <ul>
-          {predictedPrices.map((prediction, index) => (
-            <li key={index}>
-              Week {prediction.week}: Predicted Retail Price = {prediction.retail_prediction}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="crop-card">
-        <PriceComparisonGraph lastPrices={lastPrices} predictedPrices={predictedPrices} />
+      {/* Right Column for Predicted Prices and Graph */}
+      <div className="price-graph-container">
+        <div className="crop-card">
+          <h3>Predicted Prices for Next 4 Weeks</h3>
+          <ul>
+            {predictedPrices.map((prediction, index) => (
+              <li key={index}>
+                Week {prediction.week}: Predicted Retail Price = {prediction.retail_prediction}
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* Graph for Predicted Prices (separate card below) */}
+        <div className="crop-card">
+          <PriceComparisonGraph lastPrices={lastPrices} predictedPrices={predictedPrices} />
+        </div>
       </div>
     </div>
   );
