@@ -1,39 +1,136 @@
-/* Dashboard.css */
-
-/* Dashboard Container */
+/* Background and general layout for the dashboard */
 .dashboard-container {
-    padding: 20px;
-    background-color: #f9f9f9; /* Light background for better visibility */
+  position: relative;
+  background-image: url('./assets/background.jpg'); /* Background image */
+  background-size: cover; /* Ensure it covers the entire container */
+  background-position: center;
+  background-attachment: fixed; /* Optional: Keeps the background fixed */
+  height: 100vh; /* Full screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Remove extra padding */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Content section */
+.dashboard-content {
+  position: relative;
+  z-index: 1; /* Ensure content stays on top of the background */
+  width: 100%;
+  max-width: 800px; /* Increase max width for larger screens */
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+  padding: 40px; /* Increased padding */
+  border-radius: 15px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2); /* Softer and larger shadow */
+  box-sizing: border-box; /* Include padding and borders in element's total width and height */
+  height: 30%; /* Increase height for a larger content section */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Heading */
+.dashboard-content h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2.5rem; /* Larger font size */
+  margin-bottom: 25px;
+}
+
+/* Description text */
+.dashboard-content p {
+  text-align: center;
+  color: #555;
+  font-size: 1.3rem; /* Slightly larger font size */
+  margin-bottom: 40px; /* Increased margin */
+}
+
+/* Crop Overview Section */
+.crop-overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* Increased gap between cards */
+  justify-content: center;
+  max-height: calc(100vh - 250px); /* Allow space for the title and description */
+  overflow-y: auto; /* Allow scrolling within the crop overview if necessary */
+}
+
+/* Individual Crop Card */
+.crop-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px; /* Rounded corners */
+  padding: 25px; /* Increased padding */
+  text-align: center;
+  width: 280px; /* Increased width */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.crop-card img {
+  width: 150px; /* Larger image */
+  height: 150px; /* Larger image */
+  object-fit: cover;
+  margin-bottom: 20px; /* Increased margin */
+  border-radius: 50%;
+}
+
+.crop-card h3 {
+  font-size: 1.5rem; /* Larger font size */
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.crop-card p {
+  font-size: 1.1rem; /* Slightly larger font size */
+  color: #666;
+  margin-bottom: 15px; /* Increased margin */
+}
+
+/* Hover effect for cards */
+.crop-card:hover {
+  transform: translateY(-12px); /* Increased lift effect */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15); /* Larger shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding: 30px;
   }
-  
-  /* Crop Overview */
+
   .crop-overview {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
-  
-  /* Crop Card */
+
   .crop-card {
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    width: 100%;
+    max-width: 350px; /* Increased max width */
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-content {
     padding: 15px;
-    text-align: center;
-    width: 200px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .crop-card {
+    width: 100%;
+    max-width: 320px; /* Slightly increased max width */
+  }
+
   .crop-card img {
-    width: 100px;
-    margin-bottom: 10px;
+    width: 120px;
+    height: 120px;
   }
-  
-  .crop-card h3 {
-    margin: 10px 0;
+
+  .dashboard-content h2 {
+    font-size: 1.8rem; /* Slightly increased font size */
   }
-  
-  .crop-card p {
-    margin: 5px 0;
+
+  .dashboard-content p {
+    font-size: 1.1rem; /* Slightly increased font size */
   }
+}

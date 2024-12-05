@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import cassavaImage from '../assets/cassava.png'; // Adjust the path as necessary
-import gabiImage from '../assets/Gabi.png'; // Adjust the path as necessary
-import kamoteImage from '../assets/kamote.png'; // Adjust the path as necessary
-import karlangImage from '../assets/karlang.png'; // Adjust the path as necessary
-import '../Dashboard.css'; 
+import cassavaImage from '../assets/cassava.png';
+import gabiImage from '../assets/Gabi.png';
+import kamoteImage from '../assets/kamote.png';
+import karlangImage from '../assets/karlang.png';
+import '../Dashboard.css';
 
 const crops = ['Gabi', 'Kamote', 'Karlang', 'Cassava'];
 
@@ -55,28 +55,29 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <h2>Dashboard</h2>
-      <p>Welcome to the dashboard! Here you can view various statistics and insights.</p>
-      
-      <div className="crop-overview">
-        {cropData.map(({ crop, lastPrice, predictedPrice, priceChange, trend }, index) => (
-          <div key={index} className="crop-card" onClick={() => handleCropSelect(crop)}>
-            <h3>{crop}</h3>
-            <img 
-              src={crop === 'Gabi' ? gabiImage : crop === 'Kamote' ? kamoteImage : crop === 'Karlang' ? karlangImage : cassavaImage} 
-              alt={crop} 
-              className="dashboard-image" 
-            />
-            <p>Last Price: {lastPrice ? `₱${lastPrice.toFixed(2)}` : 'N/A'}</p>
-            <p>Predicted Price Next Week: {predictedPrice ? `₱${predictedPrice.toFixed(2)}` : 'N/A'}</p>
-            {priceChange !== null && (
-              <p>
-                Price Change: {trend === 'up' ? '↑' : '↓'} ₱{Math.abs(priceChange)}
-              </p>
-            )}
-          </div>
-        ))}
+    <div className="dashboard-container">
+      <div className="dashboard-content">
+        <h2>Dashboard</h2>
+        <p>Welcome to the dashboard! Here you can view various statistics and insights.</p>
+
+        <div className="crop-overview">
+          {cropData.map(({ crop, lastPrice, predictedPrice, priceChange, trend }, index) => (
+            <div key={index} className="crop-card" onClick={() => handleCropSelect(crop)}>
+              <h3>{crop}</h3>
+              <img
+                src={crop === 'Gabi' ? gabiImage : crop === 'Kamote' ? kamoteImage : crop === 'Karlang' ? karlangImage : cassavaImage}
+                alt={crop}
+              />
+              <p>Last Price: {lastPrice ? `₱${lastPrice.toFixed(2)}` : 'N/A'}</p>
+              <p>Predicted Price Next Week: {predictedPrice ? `₱${predictedPrice.toFixed(2)}` : 'N/A'}</p>
+              {priceChange !== null && (
+                <p>
+                  Price Change: {trend === 'up' ? '↑' : '↓'} ₱{Math.abs(priceChange)}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

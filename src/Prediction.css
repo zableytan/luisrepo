@@ -1,38 +1,101 @@
-/* Prediction.css */
-
 /* Prediction Form */
 .prediction-form {
-    padding: 20px;
-    background-color: #f4f4f4; /* Light background for better visibility */
+  padding: 30px;
+  background-color: #e4e4e4; /* Light gray background for a soft look */
+  border: 1px solid #ddd; /* Subtle border for form container */
+  border-radius: 10px; /* Rounded corners for a smoother design */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  max-width: 600px; /* Limit width for better focus */
+  margin: 40px auto; /* Center the form with margin */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: #333; /* Dark text for readability */
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px; /* Spacing below heading */
+}
+
+/* Form Elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap between form elements */
+}
+
+/* Form Inputs and Select */
+form input,
+form select {
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding is included in width */
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fff; /* Clean white background for inputs */
+}
+
+/* Input focus effect */
+form input:focus,
+form select:focus {
+  border-color: #007BFF; /* Blue border on focus for clarity */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.4); /* Subtle blue glow */
+  outline: none; /* Remove default outline */
+}
+
+/* Button Styles */
+.button {
+  background-color: #007BFF; /* Blue button for visibility */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%; /* Full width for easy interaction */
+}
+
+/* Button Hover and Active Effects */
+.button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.button:active {
+  background-color: #004494; /* Even darker shade on click */
+  transform: translateY(0); /* Reset the lift on click */
+}
+
+/* Error Message */
+p.error {
+  color: #e74c3c; /* Red for error messages */
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prediction-form {
+      padding: 25px;
+      max-width: 100%; /* Full width on smaller screens */
   }
-  
-  /* Form Elements */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
+
   form input,
   form select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
+      font-size: 14px;
+      padding: 12px;
   }
-  
-  /* Button Styles */
+
   .button {
-    background-color: #61dafb;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+      font-size: 16px;
+      padding: 12px 25px;
   }
-  
-  .button:hover {
-    background-color: #21a1f1;
-  }
+}
